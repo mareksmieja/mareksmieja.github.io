@@ -9,3 +9,7 @@ body {
 .bibbase_amazon {
     display: none;
 }
+
+.item {
+  padding: 5px;
+}
