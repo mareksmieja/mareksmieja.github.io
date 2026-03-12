@@ -14,20 +14,13 @@
 		if (urlParams.has('page')) {
 			const page = urlParams.get('page');
 			
-			// Ładujemy plik .html
-			$("#content").load(page + ".html", function() {
-				// SPRAWDZAMY: Jeśli załadowaliśmy stronę 'grants', wymuszamy BibBase
-				if (page === 'sonata-bis') {
-					const bibbaseScript = document.createElement('script');
-					// Podaj tutaj swój link do pliku .pub
-					bibbaseScript.src = "https://bibbase.org/show?bib=https://raw.githubusercontent.com/mareksmieja/mareksmieja.github.io/master/sonata-pubs.bib&jsonp=1";
-					// Wstawiamy skrypt do kontenera w grants.html
-					$("#bibbase_grants_container").append(bibbaseScript);
-				}
-			});
-		} else {
-			// Domyślne publikacje (jeśli nie ma parametru ?page)
-			// One są już w index.html w <div id="content">, więc nic nie robimy
+			if (page === 'sonata-bis') {
+				// Zamiast .load(), wstawiamy iframe
+				$("#content").html('<iframe src="sonata-bis.html" style="width:100%; border:none; min-height:800px;"></iframe>');
+			} else {
+				// Reszta podstron (teaching itp.) pewnie nie ma BibBase, więc .load() może zostać
+				$("#content").load(page + ".html");
+			}
 		}
 	});
     </script>
