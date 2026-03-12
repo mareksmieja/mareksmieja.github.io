@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Marek Śmieja, DSc, PhD</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />    
@@ -8,75 +8,63 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
     $(document).ready(function(){
-      $("#short_bio").load("short_bio.html");
-
-      const queryString = window.location.search;
-      const urlParams = new URLSearchParams(queryString);
-      if (urlParams.has('page')) {
+        const urlParams = new URLSearchParams(window.location.search);
         const page = urlParams.get('page');
-        $("#content").load(page.concat(".html"));
-      }
-      else {
-        // $("#content").load("pubs.html");
-      }
+
+        if (page) {
+            // Czyścimy zawartość i ładujemy odpowiedni plik .html
+            $("#content").empty().load(page + ".html");
+        } else {
+            // Domyślna zawartość (lista publikacji głównych)
+            // Można tu zostawić skrypt BibBase bezpośrednio w HTML lub ładować przez .load()
+        }
     });
     </script>
-  </head>
+</head>
 
-  <body>
-    <div class="row">
-      <div class="col-md-3">
-        <!--<img src="marek-portret.png" width="70%"/>-->
-		<img src="zdjęcie-moje.jpg" width="100%"/>
+<body>
+    <div class="container-fluid"> <div class="row">
+            <div class="col-md-3">
+                <img src="zdjęcie-moje.jpg" width="100%"/>
+                <h2>Marek Śmieja<br/>DSc, PhD</h2>
+                <br>
+                <a href="https://gmum.net/team.html">Group of Machine Learning Research</a><br/>
+                <a href="https://en.uj.edu.pl/en">Jagiellonian University</a><br/>
+                ul. Łojasiewicza 6<br/>
+                30-348 Kraków, Poland<br/>
+                <br/>
+                <p>
+                    Links:
+                    <ul>
+                        <li><a href="https://orcid.org/0000-0003-2027-4132">@ORCID</a></li>
+                        <li><a href="https://www.researchgate.net/profile/Marek-Smieja">@ResearchGate</a></li>
+                        <li><a href="https://scholar.google.com/citations?user=MOmnpZcAAAAJ&hl=pl">@ScholarGoogle</a></li>
+                    </ul>
+                </p>
+            </div>
+            
+            <div class="col-md-9">
+                <h2>Research Interests</h2>
+                <ul>
+                    <li>Unsupervised learning</li>
+                    <li>Generative models</li>
+                    <li>Tabular and missing data</li>
+                    <li>Explainable AI</li>
+                    <li>Cheminformatics</li>
+                </ul>
+                <hr>
+                <h2>
+                    <a href='index.html'>Publications</a> |
+                    <a href='?page=grants'>Grants</a> |
+                    <a href='?page=teaching'>Teaching</a> |
+                    <a href='?page=others'>Others</a>
+                </h2>
 
-        <h2>Marek Śmieja<br/>DSc, PhD</h2>
-
-        <br>
-
-        <a href="https://gmum.net/team.html">Group of Machine Learning Research</a><br/>
-        <!--<a href="https://ii.uj.edu.pl/">Institute of Computer Science and Computer Mathematics</a><br/>
-        <a href="https://matinf.uj.edu.pl/en_GB/">Faculty of Mathematics and Computer Science</a><br/>-->
-        <a href="https://en.uj.edu.pl/en">Jagiellonian University</a><br/>
-        ul. Łojasiewicza 6<br/>
-        30-348 Kraków<br/>
-        Poland<br/>
-        <br/>
-
-        <p>
-          Links:
-          <ul>
-            <li><a href="https://orcid.org/0000-0003-2027-4132">@ORCID</a></li>
-            <li><a href="https://www.researchgate.net/profile/Marek-Smieja">@ResearchGate</a></li>
-            <li><a href="https://scholar.google.com/citations?user=MOmnpZcAAAAJ&hl=pl">@ScholarGoogle</a></li>
-          </ul>
-        </p>
-        <div class="spacer">
-
+                <div id="content">
+                    <script src="https://bibbase.org/show?bib=https://raw.githubusercontent.com/mareksmieja/mareksmieja.github.io/master/pubs.bib&jsonp=1"></script>
+                </div>
+            </div>
         </div>
-      </div>
-      
-      <!-- .................................. -->
-      
-      <div class="col-md-9">
-          <h2>Research Interests</h2>
-          <div>
-            <ul>
-              <li>Unsupervised learning</li>
-			  <li>Generative models</li>
-			  <li>Tabular and missing data</li>
-			  <li>Explainable AI</li>
-			  <li>Cheminformatics</li>
-            </ul>
-          </div>
-        <hr>
-          <h2>
-            <a href='https://mareksmieja.github.io'>Publications</a> |
-            <a href='https://mareksmieja.github.io/?page=grants'>Grants</a> |
-            <a href='https://mareksmieja.github.io/?page=teaching'>Teaching</a> |
-            <a href='https://mareksmieja.github.io/?page=others'>Others</a>
-          </h2>
-          <div id="content"><script src="https://bibbase.org/show?bib=https://raw.githubusercontent.com/mareksmieja/mareksmieja.github.io/master/pubs.bib&jsonp=1"></script></div>
-      </div>
     </div>
-  </body>
+</body>
 </html>
