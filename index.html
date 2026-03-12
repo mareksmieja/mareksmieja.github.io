@@ -14,13 +14,7 @@
       const urlParams = new URLSearchParams(queryString);
       if (urlParams.has('page')) {
         const page = urlParams.get('page');
-        $("#content").load(page.concat(".html"), function() {
-			if (typeof(bibbase) === "undefined") {
-				var s = document.createElement("script");
-				s.src = "https://bibbase.org/show?bib=https://mareksmieja.github.io/pubs.bib";
-				document.getElementById("content").appendChild(s);
-			}
-		});
+        $("#content").load(page.concat(".html"));
       }
       else {
         // $("#content").load("pubs.html");
@@ -81,7 +75,7 @@
             <a href='https://mareksmieja.github.io/?page=teaching'>Teaching</a> |
             <a href='https://mareksmieja.github.io/?page=others'>Others</a>
           </h2>
-          <div id="content"></div>
+          <div id="content"><script src="https://bibbase.org/show?bib=https://raw.githubusercontent.com/mareksmieja/mareksmieja.github.io/master/pubs.bib&jsonp=1"></script></div>
 		 
       </div>
     </div>
