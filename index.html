@@ -7,18 +7,29 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-    $(document).ready(function(){
-        const urlParams = new URLSearchParams(window.location.search);
-        const page = urlParams.get('page');
+	$(document).ready(function(){
+		$("#short_bio").load("short_bio.html");
 
-        if (page) {
-            // Czyścimy zawartość i ładujemy odpowiedni plik .html
-            $("#content").empty().load(page + ".html");
-        } else {
-            // Domyślna zawartość (lista publikacji głównych)
-            // Można tu zostawić skrypt BibBase bezpośrednio w HTML lub ładować przez .load()
-        }
-    });
+		const urlParams = new URLSearchParams(window.location.search);
+		if (urlParams.has('page')) {
+			const page = urlParams.get('page');
+			
+			// Ładujemy plik .html
+			$("#content").load(page + ".html", function() {
+				// SPRAWDZAMY: Jeśli załadowaliśmy stronę 'grants', wymuszamy BibBase
+				if (page === 'sonata-bis') {
+					const bibbaseScript = document.createElement('script');
+					// Podaj tutaj swój link do pliku .pub
+					bibbaseScript.src = "https://bibbase.org/show?bib=https://raw.githubusercontent.com/mareksmieja/mareksmieja.github.io/master/sonata-pubs.bib&jsonp=1";
+					// Wstawiamy skrypt do kontenera w grants.html
+					$("#bibbase_grants_container").append(bibbaseScript);
+				}
+			});
+		} else {
+			// Domyślne publikacje (jeśli nie ma parametru ?page)
+			// One są już w index.html w <div id="content">, więc nic nie robimy
+		}
+	});
     </script>
 </head>
 
