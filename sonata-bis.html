@@ -10,9 +10,10 @@ data.
 <h5>Results</h5>
 
 aaa
-<script src="https://bibbase.org/show?bib=https://mareksmieja.github.io/pubs.bib"></script>
-
-xxx
-<script src="https://bibbase.org/show?bib=https://raw.githubusercontent.com/mareksmieja/mareksmieja.github.io/master/pubs.bib&jsonp=1"></script>
+<script>
+var bibbase = document.createElement('script');
+bibbase.src = "https://bibbase.org/show?bib=https://mareksmieja.github.io/sonata-pubs.bib";
+document.getElementById("bibbase").appendChild(bibbase);
+</script>
   
   
