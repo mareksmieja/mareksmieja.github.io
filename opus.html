@@ -10,7 +10,21 @@
 <body>
     <h2>Deep conditional generative models</h2>
 	<h4>NCN OPUS Project (2022/45/B/ST6/01117)</h4>
+	
+We aim at constructing conditional deep generative models, which allow for controlling the process of generating examples.
 
+In this project, we follow an emerging trend in deep learning, which relies on reusing well-established pre-trained models, which can be effectively adapted to diverse applications with a minimal conceptual and training effort. We plan to design lightweight plugin networks, we are attached to the latent space of the pre-trained models and allow for manipulating their latent codes. Typical way of modeling conditional distribution relies on parametrizing deep generative models with conditioning factors. In this project, we follow a different approach and model each conditioning factor using an individual subset of latent attributes. This can be seen as a way of disentangling the latent space of deep generative models, because we separate conditioning information from the remaining variables. 
+In this project, we follow an emerging trend in deep learning, which relies on reusing well-established pre-trained models, which can be effectively adapted to diverse applications with a minimal conceptual and training effort. We plan to design lightweight plugin networks, we are attached to the latent space of the pre-trained models and allow for manipulating their latent codes. Typical way of modeling conditional distribution relies on parametrizing deep generative models with conditioning factors. In this project, we follow a different approach and model each conditioning factor using an individual subset of latent attributes. This can be seen as a way of disentangling the latent space of deep generative models, because we separate conditioning information from the remaining variables. 
+
+
+The project assumes the following goals:
+<ul>
+    <li class='item'>Building deep generative models for creating new samples (modifying existing examples) with the requested attributes.</li>
+	<li class='item'>Generating counterfactual explanations for decisions of deep learning models.</li>
+	<li class='item'>Generating chemical molecules and 3D shapes with the requested properties.</li>
+	<li class='item'>Solving inverse problems using deep generative models.</li>
+	<li class='item'>Comparison and analysis of various conditioning mechanisms in deep generative models.</li>
+</ul>
 	<!--<h5>Motivation</h5>
 	In real-world applications, the most common data type is tabular data. However, deep learning models are mostly designed for CV and NLP tasks, which represent only a subset of real-life data. Even though practical applications are dominated by tabular data, deep learning models do not confirm the state-of-theart performance in this domain. 
 	<h5>Goal</h5>
