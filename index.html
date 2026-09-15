@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Marek Śmieja, DSc, PhD</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />    
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marek Śmieja, DSc, PhD</title>
+<meta name="description" content="Marek Śmieja, associate professor at the Jagiellonian University and head of RELab UJ, working on generative models, tabular and missing data, and explainable AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="style.css" />
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
 	$(document).ready(function(){
-		$("#short_bio").load("short_bio.html");
-
 		const urlParams = new URLSearchParams(window.location.search);
 		if (urlParams.has('page')) {
 			const page = urlParams.get('page');
-			
+
 			if (page === 'sonata-bis') {
 				// Zamiast .load(), wstawiamy iframe
 				$("#content").html('<iframe src="sonata-bis.html" style="width:100%; border:none; min-height:800px;"></iframe>');
@@ -26,52 +29,52 @@
 			}
 		}
 	});
-    </script>
+</script>
 </head>
 
 <body>
-    <div class="container-fluid"> <div class="row">
-            <div class="col-md-3">
-                <img src="zdjęcie-moje.jpg" width="50%"/>
-                <h2>Marek Śmieja<br/>DSc, PhD</h2>
-                <br>
-                <a href="https://gmum.net/team.html">Group of Machine Learning Research</a><br/>
-                <a href="https://en.uj.edu.pl/en">Jagiellonian University</a><br/>
-                ul. Łojasiewicza 6<br/>
-                30-348 Kraków, Poland<br/>
-                <br/>
-                <p>
-                    Links:
-                    <ul>
-                        <li><a href="https://orcid.org/0000-0003-2027-4132">@ORCID</a></li>
-                        <li><a href="https://www.researchgate.net/profile/Marek-Smieja">@ResearchGate</a></li>
-                        <li><a href="https://scholar.google.com/citations?user=MOmnpZcAAAAJ&hl=pl">@ScholarGoogle</a></li>
-                    </ul>
-                </p>
-            </div>
-            
-            <div class="col-md-9">
-                <h2>Research Interests</h2>
-                <ul>
-                    <li>Unsupervised learning</li>
-                    <li>Generative models</li>
-                    <li>Tabular and missing data</li>
-                    <li>Explainable AI</li>
-                    <li>Cheminformatics</li>
-                </ul>
-                <hr>
-                <h2>
-                    <a href='index.html'>Publications</a> |
-                    <a href='?page=grants'>Grants</a> |
-                    <a href='?page=teaching'>Teaching</a> |
-                    <a href='?page=others'>Others</a>
-                </h2>
+    <div class="wrap page">
+        <aside class="profile">
+            <img class="profile-photo" src="marek-portret.png" alt="Marek Śmieja">
+            <h1>Marek Śmieja<span class="degree">DSc, PhD</span></h1>
+            <p class="role">Associate professor, Jagiellonian University<br>
+            Head of <a href="https://relab-uj.github.io/">RELab UJ</a></p>
 
-                <div id="content">
-                    <script src="https://bibbase.org/show?bib=https://raw.githubusercontent.com/mareksmieja/mareksmieja.github.io/master/pubs.bib&jsonp=1"></script>
-                </div>
+            <ul class="links">
+                <li><a href="https://orcid.org/0000-0003-2027-4132">ORCID</a></li>
+                <li><a href="https://www.researchgate.net/profile/Marek-Smieja">ResearchGate</a></li>
+                <li><a href="https://scholar.google.com/citations?user=MOmnpZcAAAAJ&hl=pl">Google Scholar</a></li>
+            </ul>
+
+            <address>
+                <a href="https://gmum.net/team.html">Group of Machine Learning Research</a><br>
+                <a href="https://en.uj.edu.pl/en">Jagiellonian University</a><br>
+                ul. Łojasiewicza 6<br>
+                30-348 Kraków, Poland
+            </address>
+        </aside>
+
+        <main>
+            <h2>Research interests</h2>
+            <ul class="interests">
+                <li>Unsupervised learning</li>
+                <li>Generative models</li>
+                <li>Tabular and missing data</li>
+                <li>Explainable AI</li>
+                <li>Cheminformatics</li>
+            </ul>
+
+            <nav class="subnav">
+                <a href='index.html'>Publications</a>
+                <a href='?page=grants'>Grants</a>
+                <a href='?page=teaching'>Teaching</a>
+                <a href='?page=others'>Others</a>
+            </nav>
+
+            <div id="content">
+                <script src="https://bibbase.org/show?bib=https://raw.githubusercontent.com/mareksmieja/mareksmieja.github.io/master/pubs.bib&jsonp=1"></script>
             </div>
-        </div>
+        </main>
     </div>
 </body>
 </html>

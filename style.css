@@ -1,15 +1,204 @@
+:root {
+  --ink: #11161c;
+  --paper: #fcfcfa;
+  --paper-alt: #f4f4ef;
+  --rule: #dddcd4;
+  --muted: #5a6470;
+  --link: #1f52c4;
+  --flip: #c1443f;
+
+  --sans: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --serif: "IBM Plex Serif", Georgia, serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
 body {
-    padding: 1rem;
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  padding: 0;
 }
 
-.spacer {
-    height: 3rem;
+a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { text-decoration-thickness: 2px; }
+
+.wrap {
+  width: min(64rem, 100% - 3rem);
+  margin-inline: auto;
+  padding: 3rem 0 5rem;
 }
 
-.bibbase_amazon {
-    display: none;
+.page {
+  display: grid;
+  grid-template-columns: 16rem 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+/* ---------- profile sidebar ---------- */
+
+.profile-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+  display: block;
+  margin-bottom: 1.2rem;
+}
+
+.profile h1 {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin: 0 0 .2rem;
+}
+
+.profile h1 .degree {
+  display: block;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--muted);
+  margin-top: .15rem;
+}
+
+.profile .role {
+  font-family: var(--sans);
+  font-size: .95rem;
+  color: var(--muted);
+  margin: 0 0 1.3rem;
+}
+
+.profile address {
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: .9rem;
+  color: var(--muted);
+  line-height: 1.8;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+}
+
+ul.links {
+  margin: 1.1rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--sans);
+  font-size: .9rem;
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+}
+
+/* ---------- main column ---------- */
+
+h2 {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
+  margin: 0 0 1rem;
+}
+
+main h2:not(:first-child) { margin-top: 2.4rem; }
+
+ul.interests {
+  margin: 0 0 2rem;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+}
+
+ul.interests li {
+  font-family: var(--sans);
+  font-size: .9rem;
+  background: var(--paper-alt);
+  border: 1px solid var(--rule);
+  padding: .35rem .75rem;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 2rem 0;
+}
+
+.subnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: .95rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1.6rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.subnav a { color: var(--ink); text-decoration: none; }
+.subnav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* ---------- content fragments (grants / teaching / others / publications) ---------- */
+
+h3 {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+  margin: 0 0 .9rem;
+}
+
+h4 {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--muted);
+  margin: 1.4rem 0 .4rem;
+}
+
+h5 {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: .95rem;
+  margin: 1.2rem 0 .4rem;
+}
+
+#content ul, #content > ul {
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
 }
 
 .item {
-  padding: 5px;
+  padding: .7rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.item:first-child { padding-top: 0; }
+
+.spacer {
+  height: 3rem;
+}
+
+.bibbase_amazon {
+  display: none;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 40rem) {
+  .page {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .profile-photo { width: 8rem; }
 }
