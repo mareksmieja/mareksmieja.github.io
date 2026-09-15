@@ -214,20 +214,22 @@ function sortEntries(entries) {
     .map((x) => x.e);
 }
 
+const DEFAULT_VISIBLE_COUNT = 10;
+
 function renderPubs(list, entries) {
   const sorted = sortEntries(entries);
   const anySelected = sorted.some((e) => isSelected(e.fields));
 
   list.innerHTML = '';
 
-  if (!anySelected) {
-    sorted.forEach((entry) => list.appendChild(buildEntry(entry)));
-    return;
-  }
+  const shown = anySelected
+    ? sorted.filter((e) => isSelected(e.fields))
+    : sorted.slice(0, DEFAULT_VISIBLE_COUNT);
+  const rest = anySelected
+    ? sorted.filter((e) => !isSelected(e.fields))
+    : sorted.slice(DEFAULT_VISIBLE_COUNT);
 
-  const selected = sorted.filter((e) => isSelected(e.fields));
-  const rest = sorted.filter((e) => !isSelected(e.fields));
-  selected.forEach((entry) => list.appendChild(buildEntry(entry)));
+  shown.forEach((entry) => list.appendChild(buildEntry(entry)));
 
   if (rest.length) {
     const moreBtn = document.createElement('button');
