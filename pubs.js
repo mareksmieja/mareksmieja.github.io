@@ -219,15 +219,16 @@ const DEFAULT_VISIBLE_COUNT = 10;
 function renderPubs(list, entries) {
   const sorted = sortEntries(entries);
   const anySelected = sorted.some((e) => isSelected(e.fields));
+  const limit = 'limit' in list.dataset ? (parseInt(list.dataset.limit, 10) || Infinity) : DEFAULT_VISIBLE_COUNT;
 
   list.innerHTML = '';
 
   const shown = anySelected
     ? sorted.filter((e) => isSelected(e.fields))
-    : sorted.slice(0, DEFAULT_VISIBLE_COUNT);
+    : sorted.slice(0, limit);
   const rest = anySelected
     ? sorted.filter((e) => !isSelected(e.fields))
-    : sorted.slice(DEFAULT_VISIBLE_COUNT);
+    : sorted.slice(limit);
 
   shown.forEach((entry) => list.appendChild(buildEntry(entry)));
 
@@ -247,18 +248,19 @@ function renderPubs(list, entries) {
 async function init() {
   const list = document.getElementById('pubs-list');
   if (!list) return;
+  const bibFile = list.dataset.bib || 'pubs.bib';
   try {
-    const res = await fetch('pubs.bib');
+    const res = await fetch(bibFile);
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const text = await res.text();
     const entries = parseBibtex(text);
-    if (!entries.length) throw new Error('no entries found in pubs.bib');
+    if (!entries.length) throw new Error('no entries found in ' + bibFile);
     renderPubs(list, entries);
   } catch (err) {
     list.innerHTML = '';
     const li = document.createElement('li');
     li.className = 'pubs-error';
-    li.textContent = 'Could not load publications from pubs.bib (' + err.message + '). See Google Scholar instead.';
+    li.textContent = 'Could not load publications from ' + bibFile + ' (' + err.message + ').';
     list.appendChild(li);
     console.error('pubs.js:', err);
   }

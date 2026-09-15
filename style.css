@@ -273,10 +273,6 @@ h5 {
   height: 3rem;
 }
 
-.bibbase_amazon {
-  display: none;
-}
-
 /* ---------- responsive ---------- */
 
 @media (max-width: 40rem) {
