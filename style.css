@@ -273,6 +273,72 @@ h5 {
   height: 3rem;
 }
 
+/* ---------- seminar topic proposals ---------- */
+
+.topics {
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.topic {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+}
+
+.topic:first-child { padding-top: 0; }
+
+.topic-title {
+  font-family: var(--sans);
+  font-weight: 500;
+}
+
+.topic-alt-link {
+  font-size: .85rem;
+}
+
+.topic-meta {
+  font-family: var(--sans);
+  font-size: .85rem;
+  color: var(--muted);
+}
+
+.topic-desc {
+  margin: 0;
+  font-size: .97rem;
+}
+
+.topic-footer {
+  font-family: var(--sans);
+  font-size: .82rem;
+  color: var(--muted);
+}
+
+.badge {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  padding: .1rem .45rem;
+  border: 1px solid var(--rule);
+  background: var(--paper-alt);
+  color: var(--muted);
+  margin-left: .5rem;
+}
+
+.badge-preprint { border-color: var(--flip); color: var(--flip); }
+
+.topics-error {
+  font-family: var(--sans);
+  font-size: .95rem;
+  color: var(--muted);
+}
+
 /* ---------- responsive ---------- */
 
 @media (max-width: 40rem) {
