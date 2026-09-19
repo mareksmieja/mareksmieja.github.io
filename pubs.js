@@ -236,7 +236,7 @@ function renderPubs(list, entries) {
     const moreBtn = document.createElement('button');
     moreBtn.type = 'button';
     moreBtn.className = 'pubs-more';
-    moreBtn.textContent = 'Show remaining publications';
+    moreBtn.textContent = 'more';
     moreBtn.addEventListener('click', () => {
       rest.forEach((entry) => list.appendChild(buildEntry(entry)));
       moreBtn.remove();
